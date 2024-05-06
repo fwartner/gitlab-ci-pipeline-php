@@ -259,7 +259,7 @@ Chromium 8.2:
     - docker pull php:$IMAGE_VERSION || true
     - docker pull $NAMESPACE:$IMAGE_VERSION || true
     - docker build --compress --cache-from $NAMESPACE:$IMAGE_VERSION --build-arg VCS_REF=$CI_COMMIT_SHORT_SHA --build-arg BUILD_DATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ') -t $NAMESPACE:$IMAGE_VERSION -f php/8.2/chromium/Dockerfile .
-    - docker run -t --rm -v $(pwd):/var/www/html fwartner/gitlab-ci-pipeline-php:$IMAGE_VERSION goss -g tests/goss-8.2.yaml v
+    - docker run -t --rm -v $(pwd):/var/www/html edbizarro/gitlab-ci-pipeline-php:$IMAGE_VERSION goss -g tests/goss-8.2.yaml v
     - docker push $NAMESPACE:$IMAGE_VERSION
   when: always
   dependencies:
